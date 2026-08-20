@@ -1,16 +1,18 @@
 import express from 'express';
 
-const app = express();
+const pedidos_routes = express.Router();
 
-app.get("/", (req, res) => {
+pedidos_routes.get("/", (req, res) => {
   res.send("Lista gera de pedidos realizados");
 });
 
-app.get("/meus-pedidos", (req, res) => {
+pedidos_routes.get("/meus-pedidos", (req, res) => {
   res.send("Histórico de pedidos do cliente");
 });
 
-app.get("/status/:codigo", (req, res) => {
+pedidos_routes.get("/status/:codigo", (req, res) => {
     const param = req.params.codigo;
     res.send(`Consultando statuso do pedido numero: ${codigo}`);
 });
+
+export default pedidos_routes;
