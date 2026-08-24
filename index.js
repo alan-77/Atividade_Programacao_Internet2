@@ -1,15 +1,19 @@
 import express from 'express';
 const app = express();
 
-const usuariosRoutes = require('./routes/usuariosRoutes.js');
-const pedidosRoutes = require('./routes/pedidosRoutes.js');
-const produtosRoutes = require('./routes/produtosRoutes.js');
+import usuariosRoutes from './routes/usuariosRoutes.js';
+import pedidosRoutes from './routes/pedidosRoutes.js';
+import produtosRoutes from './routes/produtosRoutes.js';
 
 app.listen(8080, () => {
   console.log("Servidor de e-commerce online!");
 });
 
+
 app.get("/", (req, res) => {
-  console.log("Chegou requisicao");
-  res.send("Servidor online");
+  res.send("Rota raiz");
 });
+
+app.use('/usuarios', usuariosRoutes);
+app.use('/pedidos', pedidosRoutes);
+app.use('/produtos', produtosRoutes);
