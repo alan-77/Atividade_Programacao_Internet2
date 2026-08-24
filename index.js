@@ -9,7 +9,6 @@ app.listen(8080, () => {
   console.log("Servidor de e-commerce online!");
 });
 
-
 app.get("/", (req, res) => {
   res.send("Rota raiz");
 });
